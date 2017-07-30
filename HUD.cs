@@ -71,7 +71,7 @@ public class HUD : MonoBehaviour {
 			lastLevel = SceneManager.GetActiveScene(); //ultima cena se torna a cena em que você está
 			timer = 100; // tempo retorna para 100
 			bc.points = 0; //pontuação volta a ser 0
+			bc = FindObjectOfType<BallController> ();
 		}
 	}
 }
-
