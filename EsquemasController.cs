@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,37 +7,34 @@ public class EsquemasController : MonoBehaviour {
 	//---------------------------------------------------------------------------//
 
 	[SerializeField]
-	GameObject [] esquemas, coletaveis;
+	GameObject [] group, piked;
 
 	// Use this for initialization
 	void Awake ()
 	{
-		esquemas = GameObject.FindGameObjectsWithTag ("esquemas");
-		coletaveis = GameObject.FindGameObjectsWithTag ("PikedSimple");
+		group = GameObject.FindGameObjectsWithTag ("esquemas");
+		piked = GameObject.FindGameObjectsWithTag ("PikedSimple");
 	}
 
 	void Start () 
 	{
-		for (int y = 1; y < esquemas.Length; y++) 
+		for (int y = 1; y < group.Length; y++) 
 		{
-			esquemas [y].SetActive (false);
+			group [y].SetActive (false);
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		for (int x = 0; x < esquemas.Length; x++) 
+		for (int x = 0; x < group.Length; x++) 
 		{
-			print (esquemas.Length);
-
-			if (esquemas [x].transform.childCount == 0) 
+			if (group [x].transform.childCount == 0) 
 			{
-				esquemas[x + 1].SetActive (true);
-				coletaveis = GameObject.FindGameObjectsWithTag ("PikedSimple");
+				group[x + 1].SetActive (true);
+				piked = GameObject.FindGameObjectsWithTag ("PikedSimple");
+				group [x].SetActive (false);			
 			}
-
 		}
-	
 	}
 }
